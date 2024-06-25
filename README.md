@@ -1,3 +1,2 @@
 # ScientificCalculusOne
 
-Facciamo questo progettooooooooooo
