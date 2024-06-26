@@ -19,8 +19,8 @@ def is_symmetric(matrix):
 
 def is_positive_definite(matrix):
     try:
-        _ = spla.eigsh(matrix, k=1, which='LM', return_eigenvectors=False)
-        return np.all(matrix.diagonal() > 0)
+        eigenvalue, _ = spla.eigsh(matrix, k=1, which='LM')
+        return np.all(matrix.diagonal() > 0) and eigenvalue > 0
     except spla.ArpackNoConvergence:
         return False
 
