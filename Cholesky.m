@@ -59,7 +59,7 @@ end
 
 % Converti la struttura in JSON e salva nel file
 jsonStr = jsonencode(results);
-fid = fopen('results.json', 'w');
+fid = fopen('results_Matlab.json', 'w');
 if fid == -1
     error('Impossibile aprire il file per la scrittura.');
 end
