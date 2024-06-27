@@ -82,7 +82,7 @@ def process_matrix(matrix_name):
             json_structure['Errore_Relativo'] = float(errore_relativo)
             json_structure['Time'] = round(mtrx_time, 3)
             json_structure['Memory_Used'] = round(memory_after_solution - memory_after_load, 3)
-            json_structure['Status'] = 'Successful'
+            json_structure['Status'] = 'Success'
         else:
             json_structure['Status'] = 'Matrix not symmetric or not positive definite'
 
@@ -96,36 +96,65 @@ def process_matrix(matrix_name):
     return json_structure
 
 
+def load_existing_data():
+    try:
+        with open('results.json', 'r') as f:
+            content = f.read()
+            if content:
+                return json.loads(content)
+            else:
+                return {}
+    except FileNotFoundError:
+        return {}
+    except json.JSONDecodeError:
+        print("Warning: The JSON file is not properly formatted. Starting with an empty dictionary.")
+        return {}
+
+
+def save_results(data):
+    with open('results.json', 'w') as f:
+        json.dump(data, f, indent=2)
+
+
 if __name__ == '__main__':
     matrixNames = ['cfd1.mat', 'cfd2.mat', 'apache2.mat', 'ex15.mat',
                    'G3_circuit.mat', 'parabolic_fem.mat', 'shallow_water1.mat']
 
-    results = []
+    # Carica i dati esistenti
+    existing_data = load_existing_data()
+
+    # Identifica il sistema operativo e il linguaggio corrente
+    current_os = platform.system()
+    current_language = 'Python'
+
+    # Crea una chiave unica per questa combinazione di OS e linguaggio
+    key = f"{current_os}_{current_language}"
+
+    current_results = []
 
     for matrix in matrixNames:
         print(f"Processing {matrix} ...")
         try:
             json_result = process_matrix(matrix)
-            results.append(json_result)
+            current_results.append(json_result)
         except Exception as e:
             print(f"Error processing {matrix}: {str(e)}")
-            results.append({
+            current_results.append({
                 'File': matrix,
                 'Status': f'Error: {str(e)}'
             })
 
-    system_info = {
-        'Language': 'Python',
-        'Operating_System': platform.system(),
-    }
+    # Aggiorna o aggiungi i risultati per questa combinazione di OS e linguaggio
+    if key not in existing_data:
+        existing_data[key] = {}
 
-    final_results = {
-        'System_Info': system_info,
-        'Matrix_Results': results
+    existing_data[key]['System_Info'] = {
+        'Operating_System': current_os,
+        'Language': current_language
     }
+    existing_data[key]['Matrix_Results'] = current_results
 
-    # Salva i risultati in un file JSON
-    with open('results.json', 'w') as f:
-        json.dump(final_results, f, indent=2)
+    # Salva i risultati aggiornati
+    save_results(existing_data)
 
     print("Results saved to results.json")
