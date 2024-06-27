@@ -2,7 +2,9 @@ import scipy.io
 import numpy as np
 from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import splu, spsolve, eigsh
-from numpy.linalg import norm
+from numpy.linalg import norm, cholesky
+import sksparse.cholmod as cholmod
+
 
 
 # Funzione per verificare se la matrice è simmetrica
@@ -27,18 +29,13 @@ def solution(matrix):
     # Calcolo del termine noto b
     b = matrix @ xe
 
-    # Converte la matrice in formato CSC
-    matrix_csc = csc_matrix(matrix)
+    # Dobbiamo trovare soluzione per Ax = b ma serve x
+    factor = cholmod.cholesky(matrix)
+    x = factor(b)
 
-    # Decomposizione di LU della matrice
-    lu = splu(matrix_csc)
+    #y = np.transpose(R) / b
 
-    # Risoluzione del sistema Ax = b
-    # Risolviamo per y nel sistema triangolare inferiore L * y = b
-    y = spsolve(lu.L, b)
-
-    # Risolviamo per x nel sistema triangolare superiore U * x = y
-    x = spsolve(lu.U, y)
+    #x = R / y
 
     # Verifica dell'errore
     errore_relativo = norm(x - xe, 2) / norm(xe, 2)
@@ -61,9 +58,10 @@ if __name__ == '__main__':
         # Verifica se la matrice è definita positiva
         if is_positive_definite(A):
             print("La matrice è definita positiva.")
+
+            solution(A.data)
         else:
             print("La matrice non è definita positiva.")
     else:
         print("La matrice non è simmetrica.")
 
-    solution(A)
