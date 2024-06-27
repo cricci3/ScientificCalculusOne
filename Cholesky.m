@@ -11,30 +11,30 @@ for i = 1:length(matrixNames)
     mtrx = load(['Matrix/', matrixNames{i}]);
     start_memory = memoryFunc.memory;
     matrix = mtrx.Problem.A;
-    
+
     % Creazione del vettore xe
     n = size(matrix, 1);  % Dimensione della matrice
     xe = ones(n, 1);
-    
+
     try
         tic;
-        
+
         % Calcolo del termine noto b
         b = matrix * xe;
-        
+
         % Decomposizione di Cholesky della matrice A
         R = chol(matrix);
-        
+
         % Risoluzione del sistema Ax = b
         % Risolviamo per y nel sistema triangolare inferiore R' * y = b
         y = R' \ b;
-        
+
         % Risolviamo per x nel sistema triangolare superiore R * x = y
         x = R \ y;
-        
+
         time = toc;
         final_memory = memoryFunc.memory;
-        
+
         % Verifica dell'errore
         errore_relativo = norm(x - xe, 2) / norm(xe, 2);
 
@@ -63,8 +63,22 @@ system_info = struct('Language', 'MATLAB', 'Operating_System', computer);
 % Risultati finali
 final_results = struct('System_Info', system_info, 'Matrix_Results', results);
 
+% Leggi il file JSON esistente
+fid = fopen('results.json', 'r');
+if fid == -1
+    existing_data = struct();
+else
+    raw = fread(fid, inf, 'uint8=>char')';
+    fclose(fid);
+    existing_data = jsondecode(raw);
+end
+
+% Aggiungi i risultati di MATLAB mantenendo i dati esistenti
+existing_data.Windows_MATLAB = final_results;
+
+
 % Converti la struttura in JSON e salva nel file
-jsonStr = jsonencode(final_results);
+jsonStr = jsonencode(existing_data);
 fid = fopen('results.json', 'w');
 if fid == -1
     error('Impossibile aprire il file per la scrittura.');
