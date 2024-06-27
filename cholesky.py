@@ -8,6 +8,7 @@ import sksparse.cholmod as cholmod
 import psutil
 import os
 import json
+import platform
 
 
 def get_memory_usage():
@@ -16,14 +17,26 @@ def get_memory_usage():
 
 
 def is_symmetric(mtrx):
-    return (mtrx != mtrx.T).nnz == 0
+    #  verifica se il numero di elementi diversi è zero.
+    if (mtrx != mtrx.T).nnz == 0:
+        print(f"Matrice è simmetrica")
+        return True
+    else:
+        print(f"Matrice è simmetrica")
+        return False
 
 
 def is_positive_definite(mtrx):
     try:
         eigenvalue, _ = eigsh(mtrx, k=1, which='SM')
-        return eigenvalue > 0
+        if eigenvalue > 0:
+            print(f"Matrice definita positiva")
+            return True
+        else:
+            print(f"Matrice non definita positiva")
+            return False
     except:
+        print(f"Matrice non definita positiva")
         return False
 
 
@@ -37,14 +50,14 @@ def solution(matrix):
     factor = cholmod.cholesky(matrix)
     x = factor(b)
 
-    end_time = time.time() - start_time
+    computation_time = time.time() - start_time
 
     errore_relativo = norm(x - xe) / norm(xe)
-    return errore_relativo, end_time
+    return errore_relativo, computation_time
 
 
 def process_matrix(matrix_name):
-    result = {
+    json_structure = {
         'File': matrix_name,
         'Errore_Relativo': None,
         'Time': None,
@@ -59,36 +72,44 @@ def process_matrix(matrix_name):
         memory_after_load = get_memory_usage()
 
         if is_symmetric(A) and is_positive_definite(A):
-            errore_relativo, calculation_time = solution(A)
+            errore_relativo, mtrx_time = solution(A)
             memory_after_solution = get_memory_usage()
 
-            result['Errore_Relativo'] = float(errore_relativo)
-            result['Time'] = calculation_time
-            result['Memory_Used'] = memory_after_solution - memory_after_load
-            result['Status'] = 'Successful'
+            json_structure['Errore_Relativo'] = round(float(errore_relativo), 3)
+            json_structure['Time'] = round(mtrx_time, 3)
+            json_structure['Memory_Used'] = round(memory_after_solution - memory_after_load, 3)
+            json_structure['Status'] = 'Successful'
         else:
-            result['Status'] = 'Matrix not symmetric or not positive definite'
+            json_structure['Status'] = 'Matrix not symmetric or not positive definite'
 
     except MemoryError:
-        result['Status'] = 'Memory Out of bound'
+        json_structure['Status'] = 'Memory Out of bound'
     except Exception as e:
-        result['Status'] = f'Error: {str(e)}'
+        json_structure['Status'] = f'Error: {str(e)}'
 
-    return result
+    return json_structure
 
 
 if __name__ == '__main__':
-    matrixNames = ['apache2.mat', 'cfd1.mat', 'cfd2.mat', 'ex15.mat', 'Flan_1565.mat', 'G3_circuit.mat',
-                   'parabolic_fem.mat', 'shallow_water1.mat', 'StocF-1465.mat']
+    matrixNames = ['apache2.mat', 'cfd1.mat', 'cfd2.mat', 'ex15.mat', 'Flan_1565.mat',
+                   'G3_circuit.mat', 'parabolic_fem.mat', 'shallow_water1.mat', 'StocF-1465.mat']
 
     results = []
 
     for matrix in matrixNames:
-        print(f"Processing {matrix}...")
-        result = process_matrix(matrix)
-        results.append(result)
-        print(f"Result: {result['Status']}")
-        print("--------------------")
+        print(f"Processing {matrix} ...")
+        json_result = process_matrix(matrix)
+        results.append(json_result)
+
+    system_info = {
+        'Language': 'Python',
+        'Operating_System': platform.system(),
+    }
+
+    final_results = {
+        'System_Info': system_info,
+        'Matrix_Results': results
+    }
 
     # Salva i risultati in un file JSON
     with open('results.json', 'w') as f:

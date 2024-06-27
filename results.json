@@ -1,0 +1,55 @@
+[{
+    "File":"apache2.mat",
+    "Errore_Relativo":null,
+    "Time":null,
+    "Memory_Used":null,
+    "Status":"Error: Algorithm did not succeed.\nInternal error in library CHOLMOD."
+},{
+    "File":"cfd1.mat",
+    "Errore_Relativo":2.9316347919168189E-13,
+    "Time":7.8953286,
+    "Memory_Used":-1.3227008E+6,
+    "Status":"Success"
+},{
+    "File":"cfd2.mat",
+    "Errore_Relativo":7.6250396596479261E-13,
+    "Time":30.1751467,
+    "Memory_Used":1.203789824E+6,
+    "Status":"Success"
+},{
+    "File":"ex15.mat",
+    "Errore_Relativo":8.1342830175940355E-7,
+    "Time":0.2828588,
+    "Memory_Used":-2.542452736E+6,
+    "Status":"Success"
+},{
+    "File":"Flan_1565.mat",
+    "Errore_Relativo":null,
+    "Time":null,
+    "Memory_Used":null,
+    "Status":"Error: Out of memory."
+},{
+    "File":"G3_circuit.mat",
+    "Errore_Relativo":null,
+    "Time":null,
+    "Memory_Used":null,
+    "Status":"Error: Out of memory."
+},{
+    "File":"parabolic_fem.mat",
+    "Errore_Relativo":null,
+    "Time":null,
+    "Memory_Used":null,
+    "Status":"Error: Out of memory."
+},{
+    "File":"shallow_water1.mat",
+    "Errore_Relativo":3.0821721022096178E-16,
+    "Time":2.6760982,
+    "Memory_Used":293683.2,
+    "Status":"Success"
+},{
+    "File":"StocF-1465.mat",
+    "Errore_Relativo":null,
+    "Time":null,
+    "Memory_Used":null,
+    "Status":"Error: Out of memory."
+}]
