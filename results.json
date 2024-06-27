@@ -1,55 +1,57 @@
-[{
-    "File":"apache2.mat",
-    "Errore_Relativo":null,
-    "Time":null,
-    "Memory_Used":null,
-    "Status":"Error: Algorithm did not succeed.\nInternal error in library CHOLMOD."
-},{
-    "File":"cfd1.mat",
-    "Errore_Relativo":2.9316347919168189E-13,
-    "Time":7.8953286,
-    "Memory_Used":-1.3227008E+6,
-    "Status":"Success"
-},{
-    "File":"cfd2.mat",
-    "Errore_Relativo":7.6250396596479261E-13,
-    "Time":30.1751467,
-    "Memory_Used":1.203789824E+6,
-    "Status":"Success"
-},{
-    "File":"ex15.mat",
-    "Errore_Relativo":8.1342830175940355E-7,
-    "Time":0.2828588,
-    "Memory_Used":-2.542452736E+6,
-    "Status":"Success"
-},{
-    "File":"Flan_1565.mat",
-    "Errore_Relativo":null,
-    "Time":null,
-    "Memory_Used":null,
-    "Status":"Error: Out of memory."
-},{
-    "File":"G3_circuit.mat",
-    "Errore_Relativo":null,
-    "Time":null,
-    "Memory_Used":null,
-    "Status":"Error: Out of memory."
-},{
-    "File":"parabolic_fem.mat",
-    "Errore_Relativo":null,
-    "Time":null,
-    "Memory_Used":null,
-    "Status":"Error: Out of memory."
-},{
-    "File":"shallow_water1.mat",
-    "Errore_Relativo":3.0821721022096178E-16,
-    "Time":2.6760982,
-    "Memory_Used":293683.2,
-    "Status":"Success"
-},{
-    "File":"StocF-1465.mat",
-    "Errore_Relativo":null,
-    "Time":null,
-    "Memory_Used":null,
-    "Status":"Error: Out of memory."
-}]
+{
+  "System_Info": {
+    "Language": "Python",
+    "Operating_System": "Windows"
+  },
+  "Matrix_Results": [
+    {
+      "File": "cfd1.mat",
+      "Errore_Relativo": 6.584752779857953e-14,
+      "Time": 1.426,
+      "Memory_Used": 12.863,
+      "Status": "Successful"
+    },
+    {
+      "File": "cfd2.mat",
+      "Errore_Relativo": 2.521529340627905e-13,
+      "Time": 2.449,
+      "Memory_Used": -0.16,
+      "Status": "Successful"
+    },
+    {
+      "File": "apache2.mat",
+      "Errore_Relativo": 2.951537255232608e-11,
+      "Time": 11.05,
+      "Memory_Used": 9.137,
+      "Status": "Successful"
+    },
+    {
+      "File": "ex15.mat",
+      "Errore_Relativo": 5.829871003344781e-07,
+      "Time": 0.011,
+      "Memory_Used": 1.434,
+      "Status": "Successful"
+    },
+    {
+      "File": "G3_circuit.mat",
+      "Errore_Relativo": 3.026076067548592e-12,
+      "Time": 14.887,
+      "Memory_Used": -0.324,
+      "Status": "Successful"
+    },
+    {
+      "File": "parabolic_fem.mat",
+      "Errore_Relativo": 1.03938802004113e-12,
+      "Time": 1.267,
+      "Memory_Used": 0.898,
+      "Status": "Successful"
+    },
+    {
+      "File": "shallow_water1.mat",
+      "Errore_Relativo": 2.3391477317577037e-16,
+      "Time": 0.162,
+      "Memory_Used": 5.68,
+      "Status": "Successful"
+    }
+  ]
+}

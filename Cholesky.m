@@ -39,7 +39,7 @@ for i = 1:length(matrixNames)
         errore_relativo = norm(x - xe, 2) / norm(xe, 2);
 
         % Calcolo della memoria utilizzata
-        diff_memory = (final_memory - start_memory) / 1e3; % In kB
+        diff_memory = (final_memory - start_memory) / 1e6; % In MB
 
         % Salva i risultati nella struttura
         results(i).File = matrixNames{i};
@@ -57,9 +57,15 @@ for i = 1:length(matrixNames)
     end
 end
 
+% Informazioni di sistema
+system_info = struct('Language', 'MATLAB', 'Operating_System', computer);
+
+% Risultati finali
+final_results = struct('System_Info', system_info, 'Matrix_Results', results);
+
 % Converti la struttura in JSON e salva nel file
-jsonStr = jsonencode(results);
-fid = fopen('results_Matlab.json', 'w');
+jsonStr = jsonencode(final_results);
+fid = fopen('results.json', 'w');
 if fid == -1
     error('Impossibile aprire il file per la scrittura.');
 end
