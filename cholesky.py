@@ -1,67 +1,97 @@
+import time
 import scipy.io
 import numpy as np
 from scipy.sparse import csc_matrix
-from scipy.sparse.linalg import splu, spsolve, eigsh
-from numpy.linalg import norm, cholesky
+from scipy.sparse.linalg import eigsh
+from numpy.linalg import norm
 import sksparse.cholmod as cholmod
+import psutil
+import os
+import json
 
 
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / 1024 / 1024  # Memoria in MB
 
-# Funzione per verificare se la matrice è simmetrica
-def is_symmetric(matrix):
-    return np.all(matrix.data == matrix.transpose().data)
+
+def is_symmetric(mtrx):
+    return (mtrx != mtrx.T).nnz == 0
 
 
-# Funzione per verificare se la matrice è definita positiva
-def is_positive_definite(matrix):
+def is_positive_definite(mtrx):
     try:
-        eigenvalue, _ = eigsh(matrix, k=1, which='LM')
-        return np.all(matrix.diagonal() > 0) and eigenvalue > 0
+        eigenvalue, _ = eigsh(mtrx, k=1, which='SM')
+        return eigenvalue > 0
     except:
         return False
 
 
-# Funzione per risolvere il sistema Ax = b usando la decomposizione LU
 def solution(matrix):
     n = matrix.shape[0]
     xe = np.ones(n)
 
-    # Calcolo del termine noto b
-    b = matrix @ xe
+    start_time = time.time()
 
-    # Dobbiamo trovare soluzione per Ax = b ma serve x
+    b = matrix @ xe
     factor = cholmod.cholesky(matrix)
     x = factor(b)
 
-    #y = np.transpose(R) / b
+    end_time = time.time() - start_time
 
-    #x = R / y
+    errore_relativo = norm(x - xe) / norm(xe)
+    return errore_relativo, end_time
 
-    # Verifica dell'errore
-    errore_relativo = norm(x - xe, 2) / norm(xe, 2)
-    print(f"Errore relativo: {errore_relativo}")
+
+def process_matrix(matrix_name):
+    result = {
+        'File': matrix_name,
+        'Errore_Relativo': None,
+        'Time': None,
+        'Memory_Used': None,
+        'Status': 'Failed'
+    }
+
+    try:
+        data = scipy.io.loadmat(f'Matrix/{matrix_name}')
+        A = csc_matrix(data['Problem'][0, 0]['A'])
+
+        memory_after_load = get_memory_usage()
+
+        if is_symmetric(A) and is_positive_definite(A):
+            errore_relativo, calculation_time = solution(A)
+            memory_after_solution = get_memory_usage()
+
+            result['Errore_Relativo'] = float(errore_relativo)
+            result['Time'] = calculation_time
+            result['Memory_Used'] = memory_after_solution - memory_after_load
+            result['Status'] = 'Successful'
+        else:
+            result['Status'] = 'Matrix not symmetric or not positive definite'
+
+    except MemoryError:
+        result['Status'] = 'Memory Out of bound'
+    except Exception as e:
+        result['Status'] = f'Error: {str(e)}'
+
+    return result
 
 
 if __name__ == '__main__':
-    # Carica il file .mat
-    data = scipy.io.loadmat('Matrix/cfd1.mat')
+    matrixNames = ['apache2.mat', 'cfd1.mat', 'cfd2.mat', 'ex15.mat', 'Flan_1565.mat', 'G3_circuit.mat',
+                   'parabolic_fem.mat', 'shallow_water1.mat', 'StocF-1465.mat']
 
-    # Stampare le chiavi per esaminare la struttura del dizionario
-    print(data.keys())
+    results = []
 
-    A = data['Problem'][0, 0]['A']
-    A = csc_matrix(A)
+    for matrix in matrixNames:
+        print(f"Processing {matrix}...")
+        result = process_matrix(matrix)
+        results.append(result)
+        print(f"Result: {result['Status']}")
+        print("--------------------")
 
-    # Verifica se la matrice è simmetrica
-    if is_symmetric(A):
-        print("La matrice è simmetrica.")
-        # Verifica se la matrice è definita positiva
-        if is_positive_definite(A):
-            print("La matrice è definita positiva.")
+    # Salva i risultati in un file JSON
+    with open('results.json', 'w') as f:
+        json.dump(results, f, indent=2)
 
-            solution(A.data)
-        else:
-            print("La matrice non è definita positiva.")
-    else:
-        print("La matrice non è simmetrica.")
-
+    print("Results saved to results.json")
