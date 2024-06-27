@@ -42,22 +42,24 @@ def solution(matrix):
     n = matrix.shape[0]
     xe = np.ones(n)
 
+    print("inizia computazione")
     start_time = time.time()
 
     b = matrix @ xe
     factor = cholmod.cholesky(matrix)
     x = factor(b)
 
-    end_time = time.time() - start_time
+    end_time = time.time()
+    print("computazione finita")
 
     errore_relativo = norm(x - xe) / norm(xe)
     print(f"Errore relativo: {errore_relativo}")
-    print(f"End time: {end_time}")
+    print(f"Time: {end_time - start_time}")
 
 
 if __name__ == '__main__':
 
-    data = scipy.io.loadmat(f'Matrix/cfd2.mat')
+    data = scipy.io.loadmat(f'Matrix/ex15.mat')
     A = csc_matrix(data['Problem'][0, 0]['A'])
 
     memory_after_load = get_memory_usage()
@@ -65,4 +67,4 @@ if __name__ == '__main__':
     if is_symmetric(A) and is_positive_definite(A):
         solution(A)
         memory_after_solution = get_memory_usage()
-        print(f"Differenza di memoria alla fine: {memory_after_solution-memory_after_load}")
+        print(f"Differenza di memoria alla fine: {memory_after_solution-memory_after_load} MB")
