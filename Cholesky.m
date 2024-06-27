@@ -16,7 +16,7 @@ for i = 1:length(matrixNames)
     n = size(matrix, 1);  % Dimensione della matrice
     xe = ones(n, 1);
 
-try 
+try
     tic;
     % Calculate b
     b = matrix * xe;
@@ -28,23 +28,23 @@ try
     % Solve for x in the upper triangular system R * x = y
     x = R \ y;
     time = toc;
-    
+
     % Measure final memory
     final_memory = memoryFunc.memory;
-    
+
     % Verify error
     errore_relativo = norm(x - xe, 2) / norm(xe, 2);
-    
+
     % Calculate used memory
     memory_used = (final_memory - start_memory) / 1e6; % In MB
-    
+
     % Save results in the structure
     results(i).File = matrixNames{i};
     results(i).Errore_Relativo = errore_relativo;
     results(i).Time = time;
     results(i).Memory_Used = memory_used;
     results(i).Status = 'Success';
-    
+
     % Clear variables to free memory
     clear mtrx matrix x y R b
 catch ME
