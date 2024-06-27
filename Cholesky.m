@@ -16,45 +16,49 @@ for i = 1:length(matrixNames)
     n = size(matrix, 1);  % Dimensione della matrice
     xe = ones(n, 1);
 
-    try
-        tic;
+try 
+    tic;
+    % Calculate b
+    b = matrix * xe;
+    % Cholesky decomposition of matrix A
+    R = chol(matrix);
+    % Solve the system Ax = b
+    % Solve for y in the lower triangular system R' * y = b
+    y = R' \ b;
+    % Solve for x in the upper triangular system R * x = y
+    x = R \ y;
+    time = toc;
+    
+    % Measure final memory
+    final_memory = memoryFunc.memory;
+    
+    % Verify error
+    errore_relativo = norm(x - xe, 2) / norm(xe, 2);
+    
+    % Calculate used memory
+    memory_used = (final_memory - start_memory) / 1e6; % In MB
+    
+    % Save results in the structure
+    results(i).File = matrixNames{i};
+    results(i).Errore_Relativo = errore_relativo;
+    results(i).Time = time;
+    results(i).Memory_Used = memory_used;
+    results(i).Status = 'Success';
+    
+    % Clear variables to free memory
+    clear mtrx matrix x y R b
+catch ME
+    % If there's an error (e.g., out of memory), save relevant information
+    results(i).File = matrixNames{i};
+    results(i).Errore_Relativo = NaN;
+    results(i).Time = NaN;
+    results(i).Memory_Used = NaN;
+    results(i).Status = ['Error: ', ME.message];
+end
 
-        % Calcolo del termine noto b
-        b = matrix * xe;
-
-        % Decomposizione di Cholesky della matrice A
-        R = chol(matrix);
-
-        % Risoluzione del sistema Ax = b
-        % Risolviamo per y nel sistema triangolare inferiore R' * y = b
-        y = R' \ b;
-
-        % Risolviamo per x nel sistema triangolare superiore R * x = y
-        x = R \ y;
-
-        time = toc;
-        final_memory = memoryFunc.memory;
-
-        % Verifica dell'errore
-        errore_relativo = norm(x - xe, 2) / norm(xe, 2);
-
-        % Calcolo della memoria utilizzata
-        diff_memory = (final_memory - start_memory) / 1e6; % In MB
-
-        % Salva i risultati nella struttura
-        results(i).File = matrixNames{i};
-        results(i).Errore_Relativo = errore_relativo;
-        results(i).Time = time;
-        results(i).Memory_Used = diff_memory;
-        results(i).Status = 'Success';
-    catch ME
-        % Se c'è un errore (es. out of memory), salva le informazioni rilevanti
-        results(i).File = matrixNames{i};
-        results(i).Errore_Relativo = NaN;
-        results(i).Time = NaN;
-        results(i).Memory_Used = NaN;
-        results(i).Status = ['Error: ', ME.message];
-    end
+% Force garbage collection
+pause(0.1);
+java.lang.System.gc()
 end
 
 % Informazioni di sistema
