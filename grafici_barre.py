@@ -80,6 +80,13 @@ for i, (metric, title, ylabel) in enumerate(zip(metrics, titles, ylabels)):
                     f'{height:.2e}',
                     ha='center', va='bottom', rotation=90, fontsize=8)
 
+    # Aggiungi spazio a sinistra
+    ax.set_xlim(left=-0.5)  # Aggiungi questa linea
+
 plt.tight_layout()
-plt.subplots_adjust(top=0.92, right=0.85)
+plt.subplots_adjust(top=0.92, right=0.85, left=0.1)  # Modifica questa linea
+
+# Salva l'immagine
+plt.savefig('bar-plot.png', dpi=300, bbox_inches='tight')
+
 plt.show()
