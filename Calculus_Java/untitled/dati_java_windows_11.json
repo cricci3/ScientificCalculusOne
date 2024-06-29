@@ -1,0 +1,14 @@
+{
+  "systemInfo" : {
+    "language" : "Java",
+    "operatingSystem" : "Windows 11"
+  },
+  "matrixResults" : [ {
+    "matrixName" : "cfd2.mat",
+    "size" : 0,
+    "memoryUsed" : 0,
+    "time" : 0.0,
+    "erroreRelativo" : 0.0,
+    "status" : "Error: Out of memory"
+  } ]
+}
