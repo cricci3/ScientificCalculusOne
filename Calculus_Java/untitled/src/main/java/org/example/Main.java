@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Main {
-    private static final String MATRICES_PATH = "src/main/resources/Matrix";
+    private static final String MATRICES_PATH = "..\\Matrix";
 
     public static void main(String[] args) {
         try {

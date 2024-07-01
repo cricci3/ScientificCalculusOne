@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatrixProcessor {
-    private static final double SYMMETRY_TOLERANCE = 1e-6;
+    private static final double SYMMETRY_TOLERANCE = 1e-8;
     private final Path matricesPath;
 
     public MatrixProcessor(Path matricesPath) {
@@ -53,9 +53,10 @@ public class MatrixProcessor {
 
         DMatrixSparseCSC A = Mat5Ejml.convert(value, new DMatrixSparseCSC(value.getNumRows(), value.getNumCols()));
         A.nz_length = value.getNumNonZero();
-
         MatrixSolver.validateMatrix(A, SYMMETRY_TOLERANCE);
-
+        // Liberare la memoria non utilizzata
+        System.gc();
+        // Misura la memoria iniziale
         long startMemory = MemoryUtil.getUsedMemory();
         data.setMemoryUsed(startMemory);
 
@@ -63,7 +64,9 @@ public class MatrixProcessor {
         DMatrixSparseCSC x = new DMatrixSparseCSC(A.numRows, 1);
 
         long startTime = System.currentTimeMillis();
+        System.out.println("Ciao solve 1");
         MatrixSolver.solveSystem(A, B, x);
+        System.out.println("Ciao solve 2");
         data.setTime((System.currentTimeMillis() - startTime) / 1000.0);
 
         long endMemory = MemoryUtil.getUsedMemory();

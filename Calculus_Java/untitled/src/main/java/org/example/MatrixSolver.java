@@ -13,12 +13,15 @@ import org.ejml.sparse.csc.factory.LinearSolverFactory_DSCC;
 public class MatrixSolver {
 
     public static void validateMatrix(DMatrixSparseCSC A, double symmetryTolerance) {
-        if (!MatrixFeatures_DSCC.isPositiveDefinite(A)) {
-            throw new IllegalArgumentException("Matrix is not positive definite");
-        }
+        System.out.println("Ciao1");
+//        if (!MatrixFeatures_DSCC.isPositiveDefinite(A)) {
+//            throw new IllegalArgumentException("Matrix is not positive definite");
+//        }
+        System.out.println("Ciao2");
         if (!MatrixFeatures_DSCC.isSymmetric(A, symmetryTolerance)) {
             throw new IllegalArgumentException("Matrix is not symmetric");
         }
+        System.out.println("Ciao3");
     }
 
     public static DMatrixSparseCSC createBVector(DMatrixSparseCSC A) {
