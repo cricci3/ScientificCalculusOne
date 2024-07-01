@@ -54,25 +54,35 @@ public class MatrixProcessor {
         DMatrixSparseCSC A = Mat5Ejml.convert(value, new DMatrixSparseCSC(value.getNumRows(), value.getNumCols()));
         A.nz_length = value.getNumNonZero();
         MatrixSolver.validateMatrix(A, SYMMETRY_TOLERANCE);
+
         // Liberare la memoria non utilizzata
         System.gc();
+
         // Misura la memoria iniziale
         long startMemory = MemoryUtil.getUsedMemory();
+
+        // Memorizza la memoria iniziale nel data
         data.setMemoryUsed(startMemory);
 
         DMatrixSparseCSC B = MatrixSolver.createBVector(A);
         DMatrixSparseCSC x = new DMatrixSparseCSC(A.numRows, 1);
 
         long startTime = System.currentTimeMillis();
-        System.out.println("Ciao solve 1");
-        MatrixSolver.solveSystem(A, B, x);
-        System.out.println("Ciao solve 2");
-        data.setTime((System.currentTimeMillis() - startTime) / 1000.0);
+        try {
+            MatrixSolver.solveSystem(A, B, x);
+            data.setTime((System.currentTimeMillis() - startTime) / 1000.0);
 
-        long endMemory = MemoryUtil.getUsedMemory();
-        data.setMemoryUsed(endMemory - startMemory);
+            long endMemory = MemoryUtil.getUsedMemory();
+            data.setMemoryUsed(endMemory - startMemory);
 
-        data.setErroreRelativo(MatrixSolver.calculateRelativeError(x));
+            data.setErroreRelativo(MatrixSolver.calculateRelativeError(x));
+        } catch (Exception e) {
+            handleProcessingError(null, file, "Error during solving: " + e.getMessage());
+            data.setErroreRelativo(null);
+            data.setTime(null);
+            data.setMemoryUsed(null);
+            data.setStatus("Error during solving");
+        }
 
         return data;
     }
@@ -82,6 +92,11 @@ public class MatrixProcessor {
         MatrixData data = new MatrixData();
         data.setMatrixName(file.getFileName().toString());
         data.setStatus(errorMessage);
-        matrixDataList.add(data);
+        data.setErroreRelativo(null);
+        data.setTime(null);
+        data.setMemoryUsed(null);
+        if (matrixDataList != null) {
+            matrixDataList.add(data);
+        }
     }
 }

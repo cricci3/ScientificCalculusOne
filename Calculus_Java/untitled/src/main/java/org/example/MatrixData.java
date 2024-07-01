@@ -14,11 +14,11 @@ public class MatrixData {
     public long getSize() { return size; }
     public void setSize(long size) { this.size = size; }
     public long getMemoryUsed() { return memoryUsed; }
-    public void setMemoryUsed(long memoryUsed) { this.memoryUsed = memoryUsed; }
+    public void setMemoryUsed(Long memoryUsed) { this.memoryUsed = memoryUsed; }
     public double getTime() { return time; }
-    public void setTime(double time) { this.time = time; }
+    public void setTime(Double time) { this.time = time; }
     public double getErroreRelativo() { return erroreRelativo; }
-    public void setErroreRelativo(double erroreRelativo) { this.erroreRelativo = erroreRelativo; }
+    public void setErroreRelativo(Double erroreRelativo) { this.erroreRelativo = erroreRelativo; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 }

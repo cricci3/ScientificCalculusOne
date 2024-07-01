@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,17 @@ public class JSONWriter {
             rootNode = mapper.createObjectNode();
         }
 
+        String osKey = System.getProperty("os.name") + "_Java";
+
+        // Check if the Java node for the current OS already exists
+        if (rootNode.has(osKey)) {
+            JsonNode existingJavaNode = rootNode.get(osKey);
+            if (existingJavaNode.has("System_Info") && existingJavaNode.has("Matrix_Results")) {
+                System.out.println("JSON file already populated with required fields.");
+                return; // Exit the method if the fields already exist
+            }
+        }
+
         // Create new node for Java results
         ObjectNode javaNode = mapper.createObjectNode();
 
@@ -39,12 +51,12 @@ public class JSONWriter {
             matrixNode.put("File", data.getMatrixName());
             matrixNode.put("Errore_Relativo", data.getErroreRelativo());
             matrixNode.put("Time", data.getTime());
-            matrixNode.put("Memory_Used", (data.getMemoryUsed() / 1024.0)/1024.0); // Convert to MB
+            matrixNode.put("Memory_Used", (data.getMemoryUsed() / 1024.0) / 1024.0); // Convert to MB
             matrixNode.put("Status", data.getStatus());
         }
 
         // Add Java results to root node
-        rootNode.set(System.getProperty("os.name")+"_Java", javaNode);
+        rootNode.set(osKey, javaNode);
 
         // Write updated JSON back to file
         writer.writeValue(file, rootNode);
