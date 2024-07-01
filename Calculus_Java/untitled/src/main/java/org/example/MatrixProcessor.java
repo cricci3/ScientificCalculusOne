@@ -64,9 +64,7 @@ public class MatrixProcessor {
         DMatrixSparseCSC x = new DMatrixSparseCSC(A.numRows, 1);
 
         long startTime = System.currentTimeMillis();
-        System.out.println("Ciao solve 1");
         MatrixSolver.solveSystem(A, B, x);
-        System.out.println("Ciao solve 2");
         data.setTime((System.currentTimeMillis() - startTime) / 1000.0);
 
         long endMemory = MemoryUtil.getUsedMemory();
