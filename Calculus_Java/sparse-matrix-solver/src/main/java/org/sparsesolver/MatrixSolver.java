@@ -1,4 +1,4 @@
-package org.example;
+package org.sparsesolver;
 
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.data.DMatrixSparseCSC;

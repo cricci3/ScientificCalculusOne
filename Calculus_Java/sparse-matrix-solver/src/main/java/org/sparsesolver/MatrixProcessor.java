@@ -1,4 +1,4 @@
-package org.example;
+package org.sparsesolver;
 
 import org.ejml.data.DMatrixSparseCSC;
 import us.hebi.matlab.mat.ejml.Mat5Ejml;

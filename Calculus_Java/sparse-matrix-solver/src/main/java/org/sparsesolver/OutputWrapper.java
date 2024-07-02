@@ -1,4 +1,4 @@
-package org.example;
+package org.sparsesolver;
 
 import java.util.List;
 

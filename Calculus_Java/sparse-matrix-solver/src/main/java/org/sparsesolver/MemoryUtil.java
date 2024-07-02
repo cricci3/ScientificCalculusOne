@@ -1,4 +1,4 @@
-package org.example;
+package org.sparsesolver;
 
 public class MemoryUtil {
     public static long getUsedMemory() {

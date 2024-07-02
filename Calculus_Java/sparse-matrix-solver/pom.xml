@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.sparsesolver</groupId>
     <artifactId>sparse-matrix-solver</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -73,7 +73,7 @@
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.example.Main</mainClass>
+                                    <mainClass>org.sparsesolver.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
