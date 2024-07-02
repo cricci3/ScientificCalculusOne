@@ -109,64 +109,64 @@
       "Status" : "Error: Out of memory."
     } ]
   },
-  "Windows 11_Java" : {
+  "Windows_Java" : {
     "System_Info" : {
       "Operating_System" : "Windows 11",
       "Language" : "Java"
     },
     "Matrix_Results" : [ {
       "File" : "apache2.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Out of memory"
     }, {
       "File" : "cfd1.mat",
       "Errore_Relativo" : 4.525125569752032E-11,
-      "Time" : 248.633,
-      "Memory_Used" : "2.084",
+      "Time" : 182.064,
+      "Memory_Used" : 2.5388031005859375,
       "Status" : "Success"
     }, {
       "File" : "cfd2.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Out of memory"
     }, {
       "File" : "ex15.mat",
       "Errore_Relativo" : 8.007992883722316E-7,
-      "Time" : 0.071,
-      "Memory_Used" : "0.160",
+      "Time" : 0.298,
+      "Memory_Used" : 0.1573638916015625,
       "Status" : "Success"
     }, {
       "File" : "Flan_1565.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Out of memory"
     }, {
       "File" : "G3_circuit.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Negative array length. Overflow?"
     }, {
       "File" : "parabolic_fem.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Out of memory"
     }, {
       "File" : "shallow_water1.mat",
       "Errore_Relativo" : 2.9863681564209387E-16,
-      "Time" : 14.538,
-      "Memory_Used" : "2.345",
+      "Time" : 16.81,
+      "Memory_Used" : 2.6240158081054688,
       "Status" : "Success"
     }, {
       "File" : "StocF-1465.mat",
-      "Errore_Relativo" : null,
-      "Time" : null,
-      "Memory_Used" : null,
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
       "Status" : "Error: Negative array length. Overflow?"
     } ]
   }
