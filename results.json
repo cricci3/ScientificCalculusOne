@@ -1,130 +1,173 @@
 {
-   "Windows_Python":{
-      "System_Info":{
-         "Operating_System":"Windows",
-         "Language":"Python"
-      },
-      "Matrix_Results":[
-         {
-            "File":"cfd1.mat",
-            "Errore_Relativo":6.5847527798579535E-14,
-            "Time":1.502,
-            "Memory_Used":12.676,
-            "Status":"Successful"
-         },
-         {
-            "File":"cfd2.mat",
-            "Errore_Relativo":2.5215293406279048E-13,
-            "Time":2.658,
-            "Memory_Used":0.754,
-            "Status":"Successful"
-         },
-         {
-            "File":"apache2.mat",
-            "Errore_Relativo":2.9515372552326081E-11,
-            "Time":11.353,
-            "Memory_Used":10.34,
-            "Status":"Successful"
-         },
-         {
-            "File":"ex15.mat",
-            "Errore_Relativo":5.8298710033447814E-7,
-            "Time":0.014,
-            "Memory_Used":1.207,
-            "Status":"Successful"
-         },
-         {
-            "File":"G3_circuit.mat",
-            "Errore_Relativo":3.026076067548592E-12,
-            "Time":16.282,
-            "Memory_Used":-0.059,
-            "Status":"Successful"
-         },
-         {
-            "File":"parabolic_fem.mat",
-            "Errore_Relativo":1.03938802004113E-12,
-            "Time":1.468,
-            "Memory_Used":0.211,
-            "Status":"Successful"
-         },
-         {
-            "File":"shallow_water1.mat",
-            "Errore_Relativo":2.3391477317577037E-16,
-            "Time":0.151,
-            "Memory_Used":2.641,
-            "Status":"Successful"
-         }
-      ]
-   },
-   "Windows_MATLAB":{
-      "System_Info":{
-         "Language":"MATLAB",
-         "Operating_System":"PCWIN64"
-      },
-      "Matrix_Results":[
-         {
-            "File":"apache2.mat",
-            "Errore_Relativo":null,
-            "Time":null,
-            "Memory_Used":null,
-            "Status":"Error: Algorithm did not succeed.\nInternal error in library CHOLMOD."
-         },
-         {
-            "File":"cfd1.mat",
-            "Errore_Relativo":2.9316347919168189E-13,
-            "Time":6.7472788,
-            "Memory_Used":1180.69248,
-            "Status":"Success"
-         },
-         {
-            "File":"cfd2.mat",
-            "Errore_Relativo":7.6250396596479261E-13,
-            "Time":13.8218106,
-            "Memory_Used":2499.907584,
-            "Status":"Success"
-         },
-         {
-            "File":"ex15.mat",
-            "Errore_Relativo":8.1342830175940355E-7,
-            "Time":0.1286206,
-            "Memory_Used":4.13696,
-            "Status":"Success"
-         },
-         {
-            "File":"Flan_1565.mat",
-            "Errore_Relativo":null,
-            "Time":null,
-            "Memory_Used":null,
-            "Status":"Error: Out of memory."
-         },
-         {
-            "File":"G3_circuit.mat",
-            "Errore_Relativo":null,
-            "Time":null,
-            "Memory_Used":null,
-            "Status":"Error: Out of memory."
-         },
-         {
-            "File":"parabolic_fem.mat",
-            "Errore_Relativo":null,
-            "Time":null,
-            "Memory_Used":null,
-            "Status":"Error: Out of memory."
-         },
-         {
-            "File":"shallow_water1.mat",
-            "Errore_Relativo":3.0821721022096178E-16,
-            "Time":4.250547,
-            "Memory_Used":296.771584,
-            "Status":"Success"
-         },
-         {
-            "File":"StocF-1465.mat",
-            "Errore_Relativo":null,
-            "Time":null,
-            "Memory_Used":null,
-            "Status":"Error: Out of memory."
-         }
-      ]
-   }
+  "Windows_Python" : {
+    "System_Info" : {
+      "Operating_System" : "Windows",
+      "Language" : "Python"
+    },
+    "Matrix_Results" : [ {
+      "File" : "cfd1.mat",
+      "Errore_Relativo" : 6.584752779857953E-14,
+      "Time" : 1.502,
+      "Memory_Used" : 12.676,
+      "Status" : "Successful"
+    }, {
+      "File" : "cfd2.mat",
+      "Errore_Relativo" : 2.521529340627905E-13,
+      "Time" : 2.658,
+      "Memory_Used" : 0.754,
+      "Status" : "Successful"
+    }, {
+      "File" : "apache2.mat",
+      "Errore_Relativo" : 2.951537255232608E-11,
+      "Time" : 11.353,
+      "Memory_Used" : 10.34,
+      "Status" : "Successful"
+    }, {
+      "File" : "ex15.mat",
+      "Errore_Relativo" : 5.829871003344781E-7,
+      "Time" : 0.014,
+      "Memory_Used" : 1.207,
+      "Status" : "Successful"
+    }, {
+      "File" : "G3_circuit.mat",
+      "Errore_Relativo" : 3.026076067548592E-12,
+      "Time" : 16.282,
+      "Memory_Used" : -0.059,
+      "Status" : "Successful"
+    }, {
+      "File" : "parabolic_fem.mat",
+      "Errore_Relativo" : 1.03938802004113E-12,
+      "Time" : 1.468,
+      "Memory_Used" : 0.211,
+      "Status" : "Successful"
+    }, {
+      "File" : "shallow_water1.mat",
+      "Errore_Relativo" : 2.3391477317577037E-16,
+      "Time" : 0.151,
+      "Memory_Used" : 2.641,
+      "Status" : "Successful"
+    } ]
+  },
+  "Windows_MATLAB" : {
+    "System_Info" : {
+      "Language" : "MATLAB",
+      "Operating_System" : "PCWIN64"
+    },
+    "Matrix_Results" : [ {
+      "File" : "apache2.mat",
+      "Errore_Relativo" : null,
+      "Time" : null,
+      "Memory_Used" : null,
+      "Status" : "Error: Algorithm did not succeed.\nInternal error in library CHOLMOD."
+    }, {
+      "File" : "cfd1.mat",
+      "Errore_Relativo" : 2.931634791916819E-13,
+      "Time" : 6.7472788,
+      "Memory_Used" : 1180.69248,
+      "Status" : "Success"
+    }, {
+      "File" : "cfd2.mat",
+      "Errore_Relativo" : 7.625039659647926E-13,
+      "Time" : 13.8218106,
+      "Memory_Used" : 2499.907584,
+      "Status" : "Success"
+    }, {
+      "File" : "ex15.mat",
+      "Errore_Relativo" : 8.134283017594036E-7,
+      "Time" : 0.1286206,
+      "Memory_Used" : 4.13696,
+      "Status" : "Success"
+    }, {
+      "File" : "Flan_1565.mat",
+      "Errore_Relativo" : null,
+      "Time" : null,
+      "Memory_Used" : null,
+      "Status" : "Error: Out of memory."
+    }, {
+      "File" : "G3_circuit.mat",
+      "Errore_Relativo" : null,
+      "Time" : null,
+      "Memory_Used" : null,
+      "Status" : "Error: Out of memory."
+    }, {
+      "File" : "parabolic_fem.mat",
+      "Errore_Relativo" : null,
+      "Time" : null,
+      "Memory_Used" : null,
+      "Status" : "Error: Out of memory."
+    }, {
+      "File" : "shallow_water1.mat",
+      "Errore_Relativo" : 3.082172102209618E-16,
+      "Time" : 4.250547,
+      "Memory_Used" : 296.771584,
+      "Status" : "Success"
+    }, {
+      "File" : "StocF-1465.mat",
+      "Errore_Relativo" : null,
+      "Time" : null,
+      "Memory_Used" : null,
+      "Status" : "Error: Out of memory."
+    } ]
+  },
+  "Windows_Java" : {
+    "System_Info" : {
+      "Operating_System" : "Windows 11",
+      "Language" : "Java"
+    },
+    "Matrix_Results" : [ {
+      "File" : "apache2.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Out of memory"
+    }, {
+      "File" : "cfd1.mat",
+      "Errore_Relativo" : 4.525125569752032E-11,
+      "Time" : 182.064,
+      "Memory_Used" : 2.5388031005859375,
+      "Status" : "Success"
+    }, {
+      "File" : "cfd2.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Out of memory"
+    }, {
+      "File" : "ex15.mat",
+      "Errore_Relativo" : 8.007992883722316E-7,
+      "Time" : 0.298,
+      "Memory_Used" : 0.1573638916015625,
+      "Status" : "Success"
+    }, {
+      "File" : "Flan_1565.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Out of memory"
+    }, {
+      "File" : "G3_circuit.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Negative array length. Overflow?"
+    }, {
+      "File" : "parabolic_fem.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Out of memory"
+    }, {
+      "File" : "shallow_water1.mat",
+      "Errore_Relativo" : 2.9863681564209387E-16,
+      "Time" : 16.81,
+      "Memory_Used" : 2.6240158081054688,
+      "Status" : "Success"
+    }, {
+      "File" : "StocF-1465.mat",
+      "Errore_Relativo" : 0.0,
+      "Time" : 0.0,
+      "Memory_Used" : 0.0,
+      "Status" : "Error: Negative array length. Overflow?"
+    } ]
+  }
 }
