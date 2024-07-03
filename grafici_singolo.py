@@ -18,31 +18,34 @@ systems = [system for system in data.keys() if 'Python' in system and ('Windows'
 
 matrices = set()
 results = {system: {} for system in systems}
+matrix_sizes = {}
 
 for system in systems:
     for result in data[system]["Matrix_Results"]:
         file = result["File"]
         matrices.add(file)
         results[system][file] = {
-            "Memory_Used": result["Memory_Used"]
+            "Memory_Used": result.get("Memory_Used", np.nan),
+            "N": result["N"]
         }
+        matrix_sizes[file] = result["N"]
 
+# Ordina le matrici in base alla dimensione N
+sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 
 # Funzione per ottenere i valori di memoria
 def get_memory_values():
-    return [[results[system].get(matrix, {}).get("Memory_Used", np.nan) for system in systems] for matrix in matrices]
-
+    return [[results[system].get(matrix, {}).get("Memory_Used", np.nan) for system in systems] for matrix in sorted_matrices]
 
 # Funzione per filtrare i valori None e i valori non positivi (per la scala logaritmica)
 def filter_values(values):
     return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
 
-
 # Crea il grafico
 fig, ax = plt.subplots(figsize=(15, 10))
 fig.suptitle("Confronto dell'utilizzo di memoria tra Windows e Linux (Python)", fontsize=20, y=0.95)
 
-x = np.arange(len(matrices))
+x = np.arange(len(sorted_matrices))
 width = 0.35
 
 colors = sns.color_palette("husl", len(systems))
@@ -56,7 +59,8 @@ for j, (system, color) in enumerate(zip(systems, colors)):
 ax.set_ylabel("Memoria utilizzata (unità non specificate)", fontsize=12)
 ax.set_title("Utilizzo di memoria", fontsize=16, pad=20)
 ax.set_xticks(x + width / 2)
-ax.set_xticklabels(matrices, rotation=45, ha='right', fontsize=10)
+ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+                   rotation=45, ha='right', fontsize=10)
 ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
 ax.set_yscale('log')

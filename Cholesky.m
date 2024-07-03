@@ -5,7 +5,7 @@ memoryFunc = OSmemory;
 matrixNames = {'apache2.mat', 'cfd1.mat', 'cfd2.mat', 'ex15.mat','Flan_1565.mat', 'G3_circuit.mat','parabolic_fem.mat','shallow_water1.mat', 'StocF-1465.mat'};
 
 % Inizializza una cella per memorizzare i risultati
-results = struct('File', {}, 'Errore_Relativo', {}, 'Time', {}, 'Memory_Used', {}, 'Status', {});
+results = struct('File', {}, 'N', {}, 'Errore_Relativo', {}, 'Time', {}, 'Memory_Used', {}, 'Status', {});
 
 for i = 1:length(matrixNames)
     mtrx = load(['Matrix/', matrixNames{i}]);
@@ -16,7 +16,7 @@ for i = 1:length(matrixNames)
     n = size(matrix, 1);  % Dimensione della matrice
     xe = ones(n, 1);
 
-try
+try 
     tic;
     % Calculate b
     b = matrix * xe;
@@ -28,28 +28,30 @@ try
     % Solve for x in the upper triangular system R * x = y
     x = R \ y;
     time = toc;
-
+    
     % Measure final memory
     final_memory = memoryFunc.memory;
-
+    
     % Verify error
     errore_relativo = norm(x - xe, 2) / norm(xe, 2);
-
+    
     % Calculate used memory
     memory_used = (final_memory - start_memory) / 1e6; % In MB
-
+    
     % Save results in the structure
     results(i).File = matrixNames{i};
+    results(i).N = n;
     results(i).Errore_Relativo = errore_relativo;
     results(i).Time = time;
     results(i).Memory_Used = memory_used;
     results(i).Status = 'Success';
-
+    
     % Clear variables to free memory
     clear mtrx matrix x y R b
 catch ME
     % If there's an error (e.g., out of memory), save relevant information
     results(i).File = matrixNames{i};
+    results(i).N = n;
     results(i).Errore_Relativo = NaN;
     results(i).Time = NaN;
     results(i).Memory_Used = NaN;
