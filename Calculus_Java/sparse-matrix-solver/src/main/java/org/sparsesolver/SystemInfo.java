@@ -1,4 +1,4 @@
-package org.example;
+package org.sparsesolver;
 
 public class SystemInfo {
     private String language;
