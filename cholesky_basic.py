@@ -48,6 +48,7 @@ def is_positive_definite(mtrx):
 
 def solution(matrix):
     n = matrix.shape[0]
+    print(n)
     xe = np.ones(n)
 
     print("inizia computazione")
@@ -73,7 +74,6 @@ if __name__ == '__main__':
     data = scipy.io.loadmat(f'Matrix/ex15.mat')
 
     A = csc_matrix(data['Problem'][0, 0]['A'])
-
 
     memory_after_load = get_memory_usage()
 

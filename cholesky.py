@@ -79,6 +79,7 @@ def process_matrix(matrix_name):
             errore_relativo, mtrx_time = solution(A)
             memory_after_solution = get_memory_usage()
 
+            json_structure['N'] = A.shape[0]
             json_structure['Errore_Relativo'] = float(errore_relativo)
             json_structure['Time'] = round(mtrx_time, 3)
             json_structure['Memory_Used'] = round(memory_after_solution - memory_after_load, 3)
