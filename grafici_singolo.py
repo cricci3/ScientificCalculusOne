@@ -4,6 +4,10 @@ import numpy as np
 import seaborn as sns
 import re
 
+LINGUAGGIO = 'Python'
+METRICA = 'Time'
+
+
 # Imposta lo stile di seaborn per un aspetto più moderno
 sns.set_style("whitegrid")
 plt.rcParams['font.sans-serif'] = ['Arial']
@@ -14,7 +18,7 @@ with open('results.json', 'r') as file:
     data = json.load(file)
 
 # Filtra i sistemi per includere solo Windows e Linux con Python
-systems = [system for system in data.keys() if 'Python' in system and ('Windows' in system or 'Linux' in system)]
+systems = [system for system in data.keys() if LINGUAGGIO in system and ('Windows' in system or 'Linux' in system)]
 
 matrices = set()
 results = {system: {} for system in systems}
@@ -25,7 +29,7 @@ for system in systems:
         file = result["File"]
         matrices.add(file)
         results[system][file] = {
-            "Memory_Used": result.get("Memory_Used", np.nan),
+            METRICA: result.get(METRICA, np.nan),
             "N": result["N"]
         }
         matrix_sizes[file] = result["N"]
@@ -35,7 +39,7 @@ sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 
 # Funzione per ottenere i valori di memoria
 def get_memory_values():
-    return [[results[system].get(matrix, {}).get("Memory_Used", np.nan) for system in systems] for matrix in sorted_matrices]
+    return [[results[system].get(matrix, {}).get(METRICA, np.nan) for system in systems] for matrix in sorted_matrices]
 
 # Funzione per filtrare i valori None e i valori non positivi (per la scala logaritmica)
 def filter_values(values):
@@ -43,7 +47,7 @@ def filter_values(values):
 
 # Crea il grafico
 fig, ax = plt.subplots(figsize=(15, 10))
-fig.suptitle("Confronto dell'utilizzo di memoria tra Windows e Linux (Python)", fontsize=20, y=0.95)
+fig.suptitle(f"Confronto dell'utilizzo di {METRICA} tra Windows e Linux in {LINGUAGGIO}", fontsize=20, y=0.95)
 
 x = np.arange(len(sorted_matrices))
 width = 0.35
