@@ -50,6 +50,9 @@ public class JSONWriter {
             ObjectNode matrixNode = matrixResults.addObject();
             matrixNode.put("File", data.getMatrixName());
 
+            // Add the N key for matrix size
+            matrixNode.put("N", data.getSize());
+
             // Use null for 0.0 values
             if (data.getErroreRelativo() == 0.0) {
                 matrixNode.putNull("Errore_Relativo");
