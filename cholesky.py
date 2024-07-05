@@ -22,7 +22,7 @@ def is_symmetric(mtrx):
         print(f"Matrice è simmetrica")
         return True
     else:
-        print(f"Matrice è simmetrica")
+        print(f"Matrice non è simmetrica")
         return False
 
 
