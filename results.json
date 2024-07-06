@@ -1,0 +1,146 @@
+{
+  "Linux_Java": {
+    "System_Info": {
+      "Operating_System": "Linux",
+      "Language": "Java"
+    },
+    "Matrix_Results": [
+      {
+        "File": "shallow_water1.mat",
+        "N": 2316415,
+        "Errore_Relativo": 2.9863681564209387e-16,
+        "Time": 12.162326669,
+        "Memory_Used": "2.626",
+        "Status": "Success"
+      },
+      {
+        "File": "Flan_1565.mat",
+        "N": 299885577,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory"
+      },
+      {
+        "File": "ex15.mat",
+        "N": 568315,
+        "Errore_Relativo": 8.007992883722316e-07,
+        "Time": 0.069598269,
+        "Memory_Used": "184.016",
+        "Status": "Success"
+      },
+      {
+        "File": "StocF-1465.mat",
+        "N": 182648531,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory"
+      },
+      {
+        "File": "apache2.mat",
+        "N": 8501019,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory"
+      },
+      {
+        "File": "cfd2.mat",
+        "N": 23748539,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory"
+      },
+      {
+        "File": "parabolic_fem.mat",
+        "N": 13430627,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory"
+      },
+      {
+        "File": "G3_circuit.mat",
+        "N": 14164910,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Negative array length. Overflow?"
+      },
+      {
+        "File": "cfd1.mat",
+        "N": 14503159,
+        "Errore_Relativo": 4.525125569752032e-11,
+        "Time": 115.145927089,
+        "Memory_Used": "2.540",
+        "Status": "Success"
+      }
+    ]
+  },
+  "Linux_Python": {
+    "System_Info": {
+      "Operating_System": "Linux",
+      "Language": "Python"
+    },
+    "Matrix_Results": [
+      {
+        "File": "cfd1.mat",
+        "Errore_Relativo": 5.730211649923527e-14,
+        "Time": 4.292,
+        "Memory_Used": 83.297,
+        "Status": "Success",
+        "N": 70656
+      },
+      {
+        "File": "cfd2.mat",
+        "Errore_Relativo": 2.5347274636845426e-13,
+        "Time": 12.518,
+        "Memory_Used": 24.969,
+        "Status": "Success",
+        "N": 123440
+      },
+      {
+        "File": "apache2.mat",
+        "Errore_Relativo": 2.7383304950045382e-11,
+        "Time": 75.049,
+        "Memory_Used": -28.098,
+        "Status": "Success",
+        "N": 715176
+      },
+      {
+        "File": "ex15.mat",
+        "Errore_Relativo": 6.373039892025257e-07,
+        "Time": 0.018,
+        "Memory_Used": 0.0,
+        "Status": "Success",
+        "N": 6867
+      },
+      {
+        "File": "G3_circuit.mat",
+        "Errore_Relativo": 2.741083376887428e-12,
+        "Time": 29.778,
+        "Memory_Used": 60.449,
+        "Status": "Success",
+        "N": 1585478
+      },
+      {
+        "File": "parabolic_fem.mat",
+        "Errore_Relativo": 1.2186342978855653e-12,
+        "Time": 6.542,
+        "Memory_Used": -52.539,
+        "Status": "Success",
+        "N": 525825
+      },
+      {
+        "File": "shallow_water1.mat",
+        "Errore_Relativo": 2.4191432592763325e-16,
+        "Time": 0.341,
+        "Memory_Used": 0.0,
+        "Status": "Success",
+        "N": 81920
+      }
+    ]
+  }
+}
