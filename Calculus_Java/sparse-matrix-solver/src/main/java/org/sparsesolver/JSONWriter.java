@@ -8,16 +8,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class JSONWriter {
     public static void writeJSON(List<MatrixData> dataList) throws IOException {
-        String fileName = "..\\results.json";
+        Path resultsPath = Paths.get("results.json");
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
 
         // Read existing file
-        File file = new File(fileName);
+        File file = resultsPath.toFile();
         ObjectNode rootNode;
         if (file.exists()) {
             rootNode = (ObjectNode) mapper.readTree(file);
@@ -80,6 +82,6 @@ public class JSONWriter {
 
         // Write updated JSON back to file
         writer.writeValue(file, rootNode);
-        System.out.println("JSON file updated: " + fileName);
+        System.out.println("JSON file updated: " + resultsPath.toString());
     }
 }
