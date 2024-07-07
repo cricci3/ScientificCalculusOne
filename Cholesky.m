@@ -1,3 +1,5 @@
+% Ottieni il percorso del file cholesky.m
+script_path = fileparts(mfilename('fullpath'));
 % Usa la classe OSmemory per la misurazione della memoria
 memoryFunc = OSmemory;
 
