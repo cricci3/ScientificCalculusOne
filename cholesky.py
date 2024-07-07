@@ -82,7 +82,7 @@ def process_matrix(matrix_name):
             json_structure['N'] = A.shape[0]
             json_structure['Errore_Relativo'] = float(errore_relativo)
             json_structure['Time'] = round(mtrx_time, 3)
-            json_structure['Memory_Used'] = round(memory_after_solution - memory_after_load, 3)
+            json_structure['Memory_Used'] = memory_after_solution - memory_after_load
             json_structure['Status'] = 'Success'
         else:
             json_structure['Status'] = 'Matrix not symmetric or not positive definite'
