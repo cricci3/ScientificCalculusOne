@@ -76,16 +76,14 @@ def process_matrix(matrix_name):
         A = csc_matrix(data['Problem'][0, 0]['A'])
 
         memory_after_load = get_memory_usage()
-        print(memory_after_load)
 
         if is_symmetric(A):
             errore_relativo, mtrx_time, memory_after_solution = solution(A)
-            print(memory_after_solution)
 
             json_structure['N'] = A.shape[0]
             json_structure['Errore_Relativo'] = float(errore_relativo)
             json_structure['Time'] = round(mtrx_time, 3)
-            json_structure['Memory_Used'] = memory_after_solution - memory_after_load
+            json_structure['Memory_Used'] = round(memory_after_solution - memory_after_load, 3)
             json_structure['Status'] = 'Success'
         else:
             json_structure['Status'] = 'Matrix not symmetric or not positive definite'
