@@ -50,8 +50,8 @@ def solution(matrix):
     try:
         factor = cholmod.cholesky(matrix)
         x = factor(b)
-        memory_after = get_memory_usage()
         computation_time = time.time() - start_time
+        memory_after = get_memory_usage()
 
         errore_relativo = norm(x - xe) / norm(xe)
     except cholmod.CholmodError:
