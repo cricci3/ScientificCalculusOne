@@ -12,18 +12,8 @@ import platform
 
 
 def get_memory_usage():
-    process = psutil.Process()
-    memoria = process.memory_info().rss / (1024 * 1024)
-
-    """
-    if os.name == 'posix':  # Linux
-        memoria = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
-        print(memoria_finale)
-    elif os.name == 'nt':  # Windows
-        process = psutil.Process()
-        memoria = process.memory_info().rss / (1024 * 1024)
-    """
-    return memoria
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / 1024 / 1024  # Memoria in MB
 
 
 def is_symmetric(mtrx):
@@ -60,14 +50,16 @@ def solution(matrix):
     try:
         factor = cholmod.cholesky(matrix)
         x = factor(b)
+        memory_after = get_memory_usage()
         computation_time = time.time() - start_time
 
         errore_relativo = norm(x - xe) / norm(xe)
     except cholmod.CholmodError:
         errore_relativo = None
         computation_time = None
+        memory_after = None
 
-    return errore_relativo, computation_time
+    return errore_relativo, computation_time, memory_after
 
 
 def process_matrix(matrix_name):
@@ -84,10 +76,11 @@ def process_matrix(matrix_name):
         A = csc_matrix(data['Problem'][0, 0]['A'])
 
         memory_after_load = get_memory_usage()
+        print(memory_after_load)
 
         if is_symmetric(A):
-            errore_relativo, mtrx_time = solution(A)
-            memory_after_solution = get_memory_usage()
+            errore_relativo, mtrx_time, memory_after_solution = solution(A)
+            print(memory_after_solution)
 
             json_structure['N'] = A.shape[0]
             json_structure['Errore_Relativo'] = float(errore_relativo)
