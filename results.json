@@ -16,15 +16,15 @@
       {
         "File": "Flan_1565.mat",
         "N": 299885577,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Out of memory"
       },
       {
         "File": "ex15.mat",
         "N": 568315,
-        "Errore_Relativo": 8.007992883722316e-07,
+        "Errore_Relativo": 8.007992883722316e-7,
         "Time": 0.069598269,
         "Memory_Used": "184.016",
         "Status": "Success"
@@ -32,41 +32,41 @@
       {
         "File": "StocF-1465.mat",
         "N": 182648531,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Out of memory"
       },
       {
         "File": "apache2.mat",
         "N": 8501019,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Out of memory"
       },
       {
         "File": "cfd2.mat",
         "N": 23748539,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Out of memory"
       },
       {
         "File": "parabolic_fem.mat",
         "N": 13430627,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Out of memory"
       },
       {
         "File": "G3_circuit.mat",
         "N": 14164910,
-        "Errore_Relativo": null,
-        "Time": null,
-        "Memory_Used": null,
+        "Errore_Relativo": [],
+        "Time": [],
+        "Memory_Used": [],
         "Status": "Error: Negative array length. Overflow?"
       },
       {
@@ -111,9 +111,9 @@
       },
       {
         "File": "ex15.mat",
-        "Errore_Relativo": 6.373039892025257e-07,
+        "Errore_Relativo": 6.373039892025257e-7,
         "Time": 0.018,
-        "Memory_Used": 0.0,
+        "Memory_Used": 0,
         "Status": "Success",
         "N": 6867
       },
@@ -137,9 +137,89 @@
         "File": "shallow_water1.mat",
         "Errore_Relativo": 2.4191432592763325e-16,
         "Time": 0.341,
-        "Memory_Used": 0.0,
+        "Memory_Used": 0,
         "Status": "Success",
         "N": 81920
+      }
+    ]
+  },
+  "Linux_MATLAB": {
+    "System_Info": {
+      "Language": "MATLAB",
+      "Operating_System": "GLNXA64"
+    },
+    "Matrix_Results": [
+      {
+        "File": "apache2.mat",
+        "N": 715176,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
+        "File": "cfd1.mat",
+        "N": 70656,
+        "Errore_Relativo": 6.184882180077705e-13,
+        "Time": 9.626506,
+        "Memory_Used": 1051.168768,
+        "Status": "Success"
+      },
+      {
+        "File": "cfd2.mat",
+        "N": 123440,
+        "Errore_Relativo": 7.830465595892971e-13,
+        "Time": 18.895072,
+        "Memory_Used": 1392.893952,
+        "Status": "Success"
+      },
+      {
+        "File": "ex15.mat",
+        "N": 6867,
+        "Errore_Relativo": 8.213801867125795e-7,
+        "Time": 0.293509,
+        "Memory_Used": 3.649536,
+        "Status": "Success"
+      },
+      {
+        "File": "Flan_1565.mat",
+        "N": 1564794,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
+        "File": "G3_circuit.mat",
+        "N": 1585478,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
+        "File": "parabolic_fem.mat",
+        "N": 525825,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
+        "File": "shallow_water1.mat",
+        "N": 81920,
+        "Errore_Relativo": 3.0768879831484987e-16,
+        "Time": 3.168593,
+        "Memory_Used": 351.752192,
+        "Status": "Success"
+      },
+      {
+        "File": "StocF-1465.mat",
+        "N": 1465137,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
       }
     ]
   }
