@@ -12,8 +12,18 @@ import platform
 
 
 def get_memory_usage():
-    process = psutil.Process(os.getpid())
-    return process.memory_info().rss / 1024 / 1024  # Memoria in MB
+    process = psutil.Process()
+    memoria = process.memory_info().rss / (1024 * 1024)
+
+    """
+    if os.name == 'posix':  # Linux
+        memoria = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+        print(memoria_finale)
+    elif os.name == 'nt':  # Windows
+        process = psutil.Process()
+        memoria = process.memory_info().rss / (1024 * 1024)
+    """
+    return memoria
 
 
 def is_symmetric(mtrx):
