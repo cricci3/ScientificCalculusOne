@@ -3,13 +3,16 @@ import json
 import numpy as np
 import seaborn as sns
 
+
 # Funzione per ottenere i valori per una metrica specifica
 def get_values(metric):
     return [[results[system].get(matrix, {}).get(metric, np.nan) for system in systems] for matrix in sorted_matrices]
 
+
 # Funzione per filtrare i valori None e i valori non positivi (per la scala logaritmica)
 def filter_values(values):
     return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
+
 
 if __name__ == '__main__':
     # Imposta lo stile di seaborn per un aspetto più moderno
@@ -45,13 +48,13 @@ if __name__ == '__main__':
     # Crea i grafici
     metrics = ["Time", "Memory_Used", "Errore_Relativo"]
     titles = ["Tempo di esecuzione", "Memoria Utilizzata", "Errore Relativo"]
-    ylabels = ["Tempo (s)", "Memoria (unità non specificate)", "Errore"]
+    ylabels = ["Tempo (s)", "Memoria (mB)", "Errore"]
 
-    fig, axes = plt.subplots(3, 1, figsize=(15, 25))
+    fig, axes = plt.subplots(3, 1, figsize=(15, 30))
     fig.suptitle("Confronto delle prestazioni tra sistemi", fontsize=20, y=0.95)
 
     x = np.arange(len(sorted_matrices))
-    width = 0.35
+    width = 0.15
 
     colors = sns.color_palette("husl", len(systems))
 
@@ -65,7 +68,7 @@ if __name__ == '__main__':
 
         ax.set_ylabel(ylabel, fontsize=12)
         ax.set_title(title, fontsize=16, pad=20)
-        ax.set_xticks(x + width / 2)
+        ax.set_xticks(x + width * (len(systems) - 1) / 2)
         ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                            rotation=45, ha='right', fontsize=10)
         ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))

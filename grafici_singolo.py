@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 
 LINGUAGGIO = 'MATLAB'
-METRICA = 'Errore_Relativo'
+METRICA = 'Memory_Used'
 
 
 # Imposta lo stile di seaborn per un aspetto più moderno
