@@ -38,6 +38,14 @@
         "N": 6867
       },
       {
+        "File": "Flan_1565.mat",
+        "N": 1564794,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
         "File": "G3_circuit.mat",
         "Errore_Relativo": 2.741083376887428e-12,
         "Time": 36.084,
@@ -60,21 +68,29 @@
         "Memory_Used": 0,
         "Status": "Success",
         "N": 81920
+      },
+      {
+        "File": "StocF-1465.mat",
+        "N": 1465137,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
       }
     ]
   },
   "Linux_MATLAB": {
     "System_Info": {
       "Language": "MATLAB",
-      "Operating_System": "GLNXA64"
+      "Operating_System": "Linux"
     },
     "Matrix_Results": [
       {
         "File": "apache2.mat",
         "N": 715176,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory."
       },
       {
@@ -104,25 +120,25 @@
       {
         "File": "Flan_1565.mat",
         "N": 1564794,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory."
       },
       {
         "File": "G3_circuit.mat",
         "N": 1585478,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory."
       },
       {
         "File": "parabolic_fem.mat",
         "N": 525825,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory."
       },
       {
@@ -136,9 +152,9 @@
       {
         "File": "StocF-1465.mat",
         "N": 1465137,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory."
       }
     ]
@@ -154,15 +170,15 @@
         "N": 2316415,
         "Errore_Relativo": 2.9863681564209387e-16,
         "Time": 13.142947908,
-        "Memory_Used": "2.626",
+        "Memory_Used": 2.626,
         "Status": "Success"
       },
       {
         "File": "Flan_1565.mat",
         "N": 299885577,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
@@ -170,47 +186,47 @@
         "N": 568315,
         "Errore_Relativo": 8.007992883722316e-7,
         "Time": 0.09664604,
-        "Memory_Used": "83.514",
+        "Memory_Used": 83.514,
         "Status": "Success"
       },
       {
         "File": "StocF-1465.mat",
         "N": 182648531,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
         "File": "apache2.mat",
         "N": 8501019,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
         "File": "cfd2.mat",
         "N": 23748539,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
         "File": "parabolic_fem.mat",
         "N": 13430627,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
         "File": "G3_circuit.mat",
         "N": 14164910,
-        "Errore_Relativo": [],
-        "Time": [],
-        "Memory_Used": [],
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
         "Status": "Error: Out of memory"
       },
       {
@@ -218,7 +234,7 @@
         "N": 14503159,
         "Errore_Relativo": 4.525125569752032e-11,
         "Time": 113.24928537,
-        "Memory_Used": "2.539",
+        "Memory_Used": 2.539,
         "Status": "Success"
       }
     ]
@@ -262,6 +278,14 @@
         "N": 6867
       },
       {
+        "File": "Flan_1565.mat",
+        "N": 1564794,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
+      },
+      {
         "File": "G3_circuit.mat",
         "Errore_Relativo": 3.023766807150663e-12,
         "Time": 31.251,
@@ -284,13 +308,21 @@
         "Memory_Used": 34.145,
         "Status": "Success",
         "N": 81920
+      },
+      {
+        "File": "StocF-1465.mat",
+        "N": 1465137,
+        "Errore_Relativo": null,
+        "Time": null,
+        "Memory_Used": null,
+        "Status": "Error: Out of memory."
       }
     ]
   },
   "Windows_MATLAB": {
     "System_Info": {
       "Language": "MATLAB",
-      "Operating_System": "PCWIN64"
+      "Operating_System": "Windows"
     },
     "Matrix_Results": [
       {
@@ -369,7 +401,7 @@
   },
   "Windows 11_Java": {
     "System_Info": {
-      "Operating_System": "Windows 11",
+      "Operating_System": "Windows",
       "Language": "Java"
     },
     "Matrix_Results": [
@@ -386,7 +418,7 @@
         "N": 14503159,
         "Errore_Relativo": 4.525125569752032e-11,
         "Time": 171.8855917,
-        "Memory_Used": "2.540",
+        "Memory_Used": 2.540,
         "Status": "Success"
       },
       {
@@ -402,7 +434,7 @@
         "N": 568315,
         "Errore_Relativo": 8.007992883722316e-7,
         "Time": 0.1756441,
-        "Memory_Used": "110.731",
+        "Memory_Used": 110.731,
         "Status": "Success"
       },
       {
@@ -434,7 +466,7 @@
         "N": 2316415,
         "Errore_Relativo": 2.9863681564209387e-16,
         "Time": 22.293455,
-        "Memory_Used": "2.626",
+        "Memory_Used": 2.626,
         "Status": "Success"
       },
       {
