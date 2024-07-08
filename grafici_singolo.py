@@ -3,8 +3,10 @@ import json
 import numpy as np
 import seaborn as sns
 
-LINGUAGGIO = 'MATLAB'
+LINGUAGGIO = 'Java'
 METRICA = 'Memory_Used'
+TITOLO = f"Confronto dell'utilizzo di memoria tra Linux e Windows in {LINGUAGGIO}"
+yLabel = "Memoria utilizzata (mB)"
 
 
 # Imposta lo stile di seaborn per un aspetto più moderno
@@ -49,7 +51,7 @@ def filter_values(values):
 
 # Crea il grafico
 fig, ax = plt.subplots(figsize=(15, 10))
-fig.suptitle(f"Confronto dell'utilizzo di {METRICA} tra Windows e Linux in {LINGUAGGIO}", fontsize=20, y=0.95)
+fig.suptitle(f"{TITOLO}", fontsize=20, y=0.95)
 
 x = np.arange(len(sorted_matrices))
 width = 0.35
@@ -62,7 +64,7 @@ for j, (system, color) in enumerate(zip(systems, colors)):
     filtered_values = filter_values([v[j] for v in memory_values])
     ax.bar(x + j * width, filtered_values, width, label=system, color=color, alpha=0.8)
 
-ax.set_ylabel("Memoria utilizzata (unità non specificate)", fontsize=12)
+ax.set_ylabel(f"{yLabel}", fontsize=12)
 ax.set_xticks(x + width / 2)
 ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                    rotation=45, ha='right', fontsize=10)
