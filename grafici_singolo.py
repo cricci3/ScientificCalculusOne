@@ -2,10 +2,9 @@ import matplotlib.pyplot as plt
 import json
 import numpy as np
 import seaborn as sns
-import re
 
-LINGUAGGIO = 'Python'
-METRICA = 'Time'
+LINGUAGGIO = 'MATLAB'
+METRICA = 'Errore_Relativo'
 
 
 # Imposta lo stile di seaborn per un aspetto più moderno
@@ -37,13 +36,16 @@ for system in systems:
 # Ordina le matrici in base alla dimensione N
 sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 
-# Funzione per ottenere i valori di memoria
-def get_memory_values():
+
+def get_metrics_values():
+    # Funzione per ottenere i valori da stampare
     return [[results[system].get(matrix, {}).get(METRICA, np.nan) for system in systems] for matrix in sorted_matrices]
+
 
 # Funzione per filtrare i valori None e i valori non positivi (per la scala logaritmica)
 def filter_values(values):
     return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
+
 
 # Crea il grafico
 fig, ax = plt.subplots(figsize=(15, 10))
@@ -54,14 +56,13 @@ width = 0.35
 
 colors = sns.color_palette("husl", len(systems))
 
-memory_values = get_memory_values()
+memory_values = get_metrics_values()
 
 for j, (system, color) in enumerate(zip(systems, colors)):
     filtered_values = filter_values([v[j] for v in memory_values])
     ax.bar(x + j * width, filtered_values, width, label=system, color=color, alpha=0.8)
 
 ax.set_ylabel("Memoria utilizzata (unità non specificate)", fontsize=12)
-ax.set_title("Utilizzo di memoria", fontsize=16, pad=20)
 ax.set_xticks(x + width / 2)
 ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                    rotation=45, ha='right', fontsize=10)
@@ -85,6 +86,6 @@ plt.tight_layout()
 plt.subplots_adjust(top=0.92, right=0.85, left=0.1)
 
 # Salva l'immagine
-plt.savefig('memory-usage-plot.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'{LINGUAGGIO}-{METRICA}-plot.png', dpi=300, bbox_inches='tight')
 
 plt.show()
