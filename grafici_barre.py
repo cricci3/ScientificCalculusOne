@@ -3,21 +3,21 @@ import json
 import numpy as np
 import seaborn as sns
 
-
 def get_values(metric):
     return [[results[system].get(matrix, {}).get(metric, np.nan) for system in systems] for matrix in sorted_matrices]
 
-
-def filter_values(values):
-    return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
-
+def filter_values(values, metric):
+    if metric == "Errore_Relativo":
+        return [v if v is not None else np.nan for v in values]
+    else:
+        return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
 
 def create_plot(metric, title, ylabel, filename):
     fig, ax = plt.subplots(figsize=(15, 10))
     values = get_values(metric)
 
     for j, (system, color) in enumerate(zip(systems, colors)):
-        filtered_values = filter_values([v[j] for v in values])
+        filtered_values = filter_values([v[j] for v in values], metric)
         ax.bar(x + j * width, filtered_values, width, label=system, color=color, alpha=0.8)
 
     ax.set_ylabel(ylabel, fontsize=12)
@@ -27,7 +27,11 @@ def create_plot(metric, title, ylabel, filename):
                        rotation=45, ha='right', fontsize=10)
     ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
-    if metric in ["Time", "Errore_Relativo", "Memory_Used"]:
+    if metric == "Errore_Relativo":
+        ax.set_yscale('log')
+        ax.yaxis.set_major_formatter(plt.ScalarFormatter(useMathText=True))
+        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"{x:.0e}"))
+    elif metric in ["Time", "Memory_Used"]:
         ax.set_yscale('log')
 
     ax.grid(True, which="both", ls="-", alpha=0.2)
@@ -44,7 +48,6 @@ def create_plot(metric, title, ylabel, filename):
     plt.tight_layout()
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
-
 
 if __name__ == '__main__':
     sns.set_style("whitegrid")
