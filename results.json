@@ -33,7 +33,7 @@
         "File": "ex15.mat",
         "Errore_Relativo": 6.373039892025257e-7,
         "Time": 0.021,
-        "Memory_Used": 0,
+        "Memory_Used": 5.855,
         "Status": "Success",
         "Size": 0.54
       },
@@ -65,7 +65,7 @@
         "File": "shallow_water1.mat",
         "Errore_Relativo": 2.4191432592763325e-16,
         "Time": 0.452,
-        "Memory_Used": 0,
+        "Memory_Used": 32.834,
         "Status": "Success",
         "Size": 2.21
       },
