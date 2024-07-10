@@ -3,14 +3,17 @@ import json
 import numpy as np
 import seaborn as sns
 
+
 def get_values(metric):
     return [[results[system].get(matrix, {}).get(metric, np.nan) for system in systems] for matrix in sorted_matrices]
+
 
 def filter_values(values, metric):
     if metric == "Errore_Relativo":
         return [v if v is not None else np.nan for v in values]
     else:
         return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
+
 
 def create_plot(metric, title, ylabel, filename):
     fig, ax = plt.subplots(figsize=(15, 10))
@@ -23,7 +26,7 @@ def create_plot(metric, title, ylabel, filename):
     ax.set_ylabel(ylabel, fontsize=12)
     ax.set_title(title, fontsize=16, pad=20)
     ax.set_xticks(x + width * (len(systems) - 1) / 2)
-    ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+    ax.set_xticklabels([f"{matrix}\n(Size={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                        rotation=45, ha='right', fontsize=10)
     ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
@@ -49,6 +52,7 @@ def create_plot(metric, title, ylabel, filename):
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
 
+
 if __name__ == '__main__':
     sns.set_style("whitegrid")
     plt.rcParams['font.sans-serif'] = ['Arial']
@@ -70,9 +74,9 @@ if __name__ == '__main__':
                 "Time": result["Time"],
                 "Memory_Used": result["Memory_Used"],
                 "Errore_Relativo": result["Errore_Relativo"],
-                "N": result["N"]
+                "Size": result["Size"]
             }
-            matrix_sizes[file] = result["N"]
+            matrix_sizes[file] = result["Size"]
 
     sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 

@@ -4,8 +4,8 @@ import numpy as np
 import seaborn as sns
 
 LINGUAGGIO = 'Java'
-METRICA = 'Errore_Relativo'
-TITOLO = f"Confronto del {METRICA} tra Linux e Windows in {LINGUAGGIO}"
+METRICA = 'Memory_Used'
+TITOLO = f"Confronto dell'occupazione di memoria tra Linux e Windows in {LINGUAGGIO}"
 yLabel = "Errore" if METRICA == 'Errore_Relativo' else METRICA
 
 # Imposta lo stile di seaborn per un aspetto più moderno
@@ -30,21 +30,24 @@ for system in systems:
         matrices.add(file)
         results[system][file] = {
             METRICA: result.get(METRICA, np.nan),
-            "N": result["N"]
+            "Size": result["Size"]
         }
-        matrix_sizes[file] = result["N"]
+        matrix_sizes[file] = result["Size"]
 
 # Ordina le matrici in base alla dimensione N
 sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 
+
 def get_metrics_values():
     return [[results[system].get(matrix, {}).get(METRICA, np.nan) for system in systems] for matrix in sorted_matrices]
+
 
 def filter_values(values):
     if METRICA == "Errore_Relativo":
         return [v if v is not None else np.nan for v in values]
     else:
         return [max(1e-10, v) if v is not None and v > 0 else np.nan for v in values]
+
 
 # Crea il grafico
 fig, ax = plt.subplots(figsize=(15, 10))
@@ -63,7 +66,7 @@ for j, (system, color) in enumerate(zip(systems, colors)):
 
 ax.set_ylabel(f"{yLabel}", fontsize=12)
 ax.set_xticks(x + width / 2)
-ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+ax.set_xticklabels([f"{matrix}\n(Size={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                    rotation=45, ha='right', fontsize=10)
 ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
