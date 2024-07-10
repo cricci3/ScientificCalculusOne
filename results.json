@@ -169,8 +169,8 @@
         "File": "shallow_water1.mat",
         "N": 2316415,
         "Errore_Relativo": 2.9863681564209387e-16,
-        "Time": 13.142947908,
-        "Memory_Used": 2.626,
+        "Time": 11.690177384,
+        "Memory_Used": 1.658,
         "Status": "Success"
       },
       {
@@ -185,8 +185,8 @@
         "File": "ex15.mat",
         "N": 568315,
         "Errore_Relativo": 8.007992883722316e-7,
-        "Time": 0.09664604,
-        "Memory_Used": 83.514,
+        "Time": 0.017645009,
+        "Memory_Used": 0.160,
         "Status": "Success"
       },
       {
@@ -195,7 +195,7 @@
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
-        "Status": "Error: Out of memory"
+        "Status": "Error"
       },
       {
         "File": "apache2.mat",
@@ -227,13 +227,13 @@
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
-        "Status": "Error: Out of memory"
+        "Status": "Error"
       },
       {
         "File": "cfd1.mat",
         "N": 14503159,
         "Errore_Relativo": 4.525125569752032e-11,
-        "Time": 113.24928537,
+        "Time": 117.406019785,
         "Memory_Used": 2.539,
         "Status": "Success"
       }
