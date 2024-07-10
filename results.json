@@ -417,8 +417,8 @@
         "File": "cfd1.mat",
         "N": 14503159,
         "Errore_Relativo": 4.525125569752032e-11,
-        "Time": 171.8855917,
-        "Memory_Used": 2.540,
+        "Time": 130.205588,
+        "Memory_Used": 2.075,
         "Status": "Success"
       },
       {
@@ -433,8 +433,8 @@
         "File": "ex15.mat",
         "N": 568315,
         "Errore_Relativo": 8.007992883722316e-7,
-        "Time": 0.1756441,
-        "Memory_Used": 110.731,
+        "Time": 0.0210523,
+        "Memory_Used": 0.160,
         "Status": "Success"
       },
       {
@@ -451,7 +451,7 @@
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
-        "Status": "Error: Negative array length. Overflow?"
+        "Status": "Error"
       },
       {
         "File": "parabolic_fem.mat",
@@ -465,8 +465,8 @@
         "File": "shallow_water1.mat",
         "N": 2316415,
         "Errore_Relativo": 2.9863681564209387e-16,
-        "Time": 22.293455,
-        "Memory_Used": 2.626,
+        "Time": 12.9992085,
+        "Memory_Used": 2.125,
         "Status": "Success"
       },
       {
