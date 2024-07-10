@@ -26,7 +26,7 @@ def create_plot(metric, title, ylabel, filename):
     ax.set_ylabel(ylabel, fontsize=12)
     ax.set_title(title, fontsize=16, pad=20)
     ax.set_xticks(x + width * (len(systems) - 1) / 2)
-    ax.set_xticklabels([f"{matrix}\n(Size={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+    ax.set_xticklabels([f"{matrix}\n(Size (MB)={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                        rotation=45, ha='right', fontsize=10)
     ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
@@ -74,9 +74,9 @@ if __name__ == '__main__':
                 "Time": result["Time"],
                 "Memory_Used": result["Memory_Used"],
                 "Errore_Relativo": result["Errore_Relativo"],
-                "Size": result["Size"]
+                "Size (MB)": result["Size (MB)"]
             }
-            matrix_sizes[file] = result["Size"]
+            matrix_sizes[file] = result["Size (MB)"]
 
     sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 
@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
     metrics = ["Time", "Memory_Used", "Errore_Relativo"]
     titles = ["Tempo di esecuzione", "Memoria Utilizzata", "Errore Relativo"]
-    ylabels = ["Tempo (s)", "Memoria (mB)", "Errore"]
+    ylabels = ["Tempo (s)", "Memoria (MB)", "Errore"]
     filenames = ["tempo_esecuzione.png", "memoria_utilizzata.png", "errore_relativo.png"]
 
     for metric, title, ylabel, filename in zip(metrics, titles, ylabels, filenames):
