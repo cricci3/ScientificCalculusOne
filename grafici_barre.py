@@ -26,7 +26,7 @@ def create_plot(metric, title, ylabel, filename):
     ax.set_ylabel(ylabel, fontsize=12)
     ax.set_title(title, fontsize=16, pad=20)
     ax.set_xticks(x + width * (len(systems) - 1) / 2)
-    ax.set_xticklabels([f"{matrix}\n(Size (MB)={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+    ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                        rotation=45, ha='right', fontsize=10)
     ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 
@@ -74,9 +74,9 @@ if __name__ == '__main__':
                 "Time": result["Time"],
                 "Memory_Used": result["Memory_Used"],
                 "Errore_Relativo": result["Errore_Relativo"],
-                "Size (MB)": result["Size (MB)"]
+                "N": result["N"]
             }
-            matrix_sizes[file] = result["Size (MB)"]
+            matrix_sizes[file] = result["N"]
 
     sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
 

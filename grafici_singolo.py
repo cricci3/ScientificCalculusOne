@@ -3,9 +3,9 @@ import json
 import numpy as np
 import seaborn as sns
 
-LINGUAGGIO = 'Python'
-METRICA = 'Errore_Relativo'
-TITOLO = f"Confronto dell'errore relativo memoria tra Linux e Windows in {LINGUAGGIO}"
+LINGUAGGIO = 'MATLAB'
+METRICA = 'Time'
+TITOLO = f"Confronto del tempo di esecuzione tra Linux e Windows in {LINGUAGGIO}"
 yLabel = "Errore" if METRICA == 'Errore_Relativo' else METRICA
 
 # Imposta lo stile di seaborn per un aspetto più moderno
@@ -30,9 +30,9 @@ for system in systems:
         matrices.add(file)
         results[system][file] = {
             METRICA: result.get(METRICA, np.nan),
-            "Size (MB)": result["Size (MB)"]
+            "N": result["N"]
         }
-        matrix_sizes[file] = result["Size (MB)"]
+        matrix_sizes[file] = result["N"]
 
 # Ordina le matrici in base alla dimensione N
 sorted_matrices = sorted(list(matrices), key=lambda x: matrix_sizes[x])
@@ -66,7 +66,7 @@ for j, (system, color) in enumerate(zip(systems, colors)):
 
 ax.set_ylabel(f"{yLabel}", fontsize=12)
 ax.set_xticks(x + width / 2)
-ax.set_xticklabels([f"{matrix}\n(Size (MB)={matrix_sizes[matrix]})" for matrix in sorted_matrices],
+ax.set_xticklabels([f"{matrix}\n(N={matrix_sizes[matrix]})" for matrix in sorted_matrices],
                    rotation=45, ha='right', fontsize=10)
 ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
 

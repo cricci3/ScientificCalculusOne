@@ -11,7 +11,7 @@
         "Time": 5.093,
         "Memory_Used": 262.414,
         "Status": "Success",
-        "Size (MB)": 13.83
+        "N": 70656
       },
       {
         "File": "cfd2.mat",
@@ -19,7 +19,7 @@
         "Time": 14.997,
         "Memory_Used": 386.438,
         "Status": "Success",
-        "Size (MB)": 22.64
+        "N": 123440
       },
       {
         "File": "apache2.mat",
@@ -27,7 +27,7 @@
         "Time": 88.785,
         "Memory_Used": 1288.258,
         "Status": "Success",
-        "Size (MB)": 8.11
+        "N": 715176
       },
       {
         "File": "ex15.mat",
@@ -35,11 +35,11 @@
         "Time": 0.021,
         "Memory_Used": 5.855,
         "Status": "Success",
-        "Size (MB)": 0.54
+        "N": 6867
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -51,7 +51,7 @@
         "Time": 36.084,
         "Memory_Used": 1127.574,
         "Status": "Success",
-        "Size (MB)": 13.55
+        "N": 1585478
       },
       {
         "File": "parabolic_fem.mat",
@@ -59,7 +59,7 @@
         "Time": 8.199,
         "Memory_Used": 370.5,
         "Status": "Success",
-        "Size (MB)": 12.81
+        "N": 525825
       },
       {
         "File": "shallow_water1.mat",
@@ -67,11 +67,11 @@
         "Time": 0.452,
         "Memory_Used": 32.834,
         "Status": "Success",
-        "Size (MB)": 2.21
+        "N": 81920
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -87,7 +87,7 @@
     "Matrix_Results": [
       {
         "File": "apache2.mat",
-        "Size (MB)": 8.11,
+        "N": 715176,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -95,7 +95,7 @@
       },
       {
         "File": "cfd1.mat",
-        "Size (MB)": 13.83,
+        "N": 70656,
         "Errore_Relativo": 6.184882180077705e-13,
         "Time": 8.746139,
         "Memory_Used": 874.749952,
@@ -103,7 +103,7 @@
       },
       {
         "File": "cfd2.mat",
-        "Size (MB)": 22.64,
+        "N": 123440,
         "Errore_Relativo": 7.830465595892971e-13,
         "Time": 27.206165,
         "Memory_Used": 1438.552064,
@@ -111,7 +111,7 @@
       },
       {
         "File": "ex15.mat",
-        "Size (MB)": 0.54,
+        "N": 6867,
         "Errore_Relativo": 8.213801867125795e-7,
         "Time": 0.250843,
         "Memory_Used": 1.59744,
@@ -119,7 +119,7 @@
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -127,7 +127,7 @@
       },
       {
         "File": "G3_circuit.mat",
-        "Size (MB)": 13.55,
+        "N": 1585478,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -135,7 +135,7 @@
       },
       {
         "File": "parabolic_fem.mat",
-        "Size (MB)": 12.81,
+        "N": 525825,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -143,7 +143,7 @@
       },
       {
         "File": "shallow_water1.mat",
-        "Size (MB)": 2.21,
+        "N": 81920,
         "Errore_Relativo": 3.0768879831484987e-16,
         "Time": 3.088221,
         "Memory_Used": 352.161792,
@@ -151,7 +151,7 @@
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -167,7 +167,7 @@
     "Matrix_Results": [
       {
         "File": "shallow_water1.mat",
-        "Size (MB)": 2.21,
+        "N": 81920,
         "Errore_Relativo": 2.9863681564209387e-16,
         "Time": 11.690177384,
         "Memory_Used": 1.658,
@@ -175,7 +175,7 @@
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -183,7 +183,7 @@
       },
       {
         "File": "ex15.mat",
-        "Size (MB)": 0.54,
+        "N": 6867,
         "Errore_Relativo": 8.007992883722316e-7,
         "Time": 0.017645009,
         "Memory_Used": 0.160,
@@ -191,7 +191,7 @@
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -199,7 +199,7 @@
       },
       {
         "File": "apache2.mat",
-        "Size (MB)": 8.11,
+        "N": 715176,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -207,7 +207,7 @@
       },
       {
         "File": "cfd2.mat",
-        "Size (MB)": 22.64,
+        "N": 123440,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -215,7 +215,7 @@
       },
       {
         "File": "parabolic_fem.mat",
-        "Size (MB)": 12.81,
+        "N": 525825,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -223,7 +223,7 @@
       },
       {
         "File": "G3_circuit.mat",
-        "Size (MB)": 13.55,
+        "N": 1585478,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -231,7 +231,7 @@
       },
       {
         "File": "cfd1.mat",
-        "Size (MB)": 13.83,
+        "N": 70656,
         "Errore_Relativo": 4.525125569752032e-11,
         "Time": 117.406019785,
         "Memory_Used": 2.539,
@@ -251,7 +251,7 @@
         "Time": 2.652,
         "Memory_Used": 197.695,
         "Status": "Success",
-        "Size (MB)": 13.83
+        "N": 70656
       },
       {
         "File": "cfd2.mat",
@@ -259,7 +259,7 @@
         "Time": 9.296,
         "Memory_Used": 355.812,
         "Status": "Success",
-        "Size (MB)": 22.64
+        "N": 123440
       },
       {
         "File": "apache2.mat",
@@ -267,7 +267,7 @@
         "Time": 36.751,
         "Memory_Used": 652.297,
         "Status": "Success",
-        "Size (MB)": 8.11
+        "N": 715176
       },
       {
         "File": "ex15.mat",
@@ -275,11 +275,11 @@
         "Time": 0.059,
         "Memory_Used": 2.734,
         "Status": "Success",
-        "Size (MB)": 0.54
+        "N": 6867
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -291,7 +291,7 @@
         "Time": 31.251,
         "Memory_Used": 1096.062,
         "Status": "Success",
-        "Size (MB)": 13.55
+        "N": 1585478
       },
       {
         "File": "parabolic_fem.mat",
@@ -299,7 +299,7 @@
         "Time": 5.232,
         "Memory_Used": 410.027,
         "Status": "Success",
-        "Size (MB)": 12.81
+        "N": 525825
       },
       {
         "File": "shallow_water1.mat",
@@ -307,11 +307,11 @@
         "Time": 0.469,
         "Memory_Used": 34.145,
         "Status": "Success",
-        "Size (MB)": 2.21
+        "N": 81920
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -327,7 +327,7 @@
     "Matrix_Results": [
       {
         "File": "apache2.mat",
-        "Size (MB)": 8.11,
+        "N": 715176,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -335,7 +335,7 @@
       },
       {
         "File": "cfd1.mat",
-        "Size (MB)": 13.83,
+        "N": 70656,
         "Errore_Relativo": 6.184882180077705e-13,
         "Time": 14.3646424,
         "Memory_Used": 1151.463424,
@@ -343,7 +343,7 @@
       },
       {
         "File": "cfd2.mat",
-        "Size (MB)": 22.64,
+        "N": 123440,
         "Errore_Relativo": 7.830465595892971e-13,
         "Time": 62.5118254,
         "Memory_Used": 2508.333056,
@@ -351,7 +351,7 @@
       },
       {
         "File": "ex15.mat",
-        "Size (MB)": 0.54,
+        "N": 6867,
         "Errore_Relativo": 8.213801867125795e-7,
         "Time": 0.3235533,
         "Memory_Used": 4.13696,
@@ -359,7 +359,7 @@
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -367,7 +367,7 @@
       },
       {
         "File": "G3_circuit.mat",
-        "Size (MB)": 13.55,
+        "N": 1585478,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -375,7 +375,7 @@
       },
       {
         "File": "parabolic_fem.mat",
-        "Size (MB)": 12.81,
+        "N": 525825,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -383,7 +383,7 @@
       },
       {
         "File": "shallow_water1.mat",
-        "Size (MB)": 2.21,
+        "N": 81920,
         "Errore_Relativo": 3.0768879831484987e-16,
         "Time": 4.1138773,
         "Memory_Used": 296.87808,
@@ -391,7 +391,7 @@
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -407,7 +407,7 @@
     "Matrix_Results": [
       {
         "File": "apache2.mat",
-        "Size (MB)": 8.11,
+        "N": 715176,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -415,7 +415,7 @@
       },
       {
         "File": "cfd1.mat",
-        "Size (MB)": 13.83,
+        "N": 70656,
         "Errore_Relativo": 4.525125569752032e-11,
         "Time": 130.205588,
         "Memory_Used": 2.075,
@@ -423,7 +423,7 @@
       },
       {
         "File": "cfd2.mat",
-        "Size (MB)": 22.64,
+        "N": 123440,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -431,7 +431,7 @@
       },
       {
         "File": "ex15.mat",
-        "Size (MB)": 0.54,
+        "N": 6867,
         "Errore_Relativo": 8.007992883722316e-7,
         "Time": 0.0210523,
         "Memory_Used": 0.160,
@@ -439,7 +439,7 @@
       },
       {
         "File": "Flan_1565.mat",
-        "Size (MB)": 285.65,
+        "N": 1564794,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -447,7 +447,7 @@
       },
       {
         "File": "G3_circuit.mat",
-        "Size (MB)": 13.55,
+        "N": 1585478,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -455,7 +455,7 @@
       },
       {
         "File": "parabolic_fem.mat",
-        "Size (MB)": 12.81,
+        "N": 525825,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
@@ -463,7 +463,7 @@
       },
       {
         "File": "shallow_water1.mat",
-        "Size (MB)": 2.21,
+        "N": 81920,
         "Errore_Relativo": 2.9863681564209387e-16,
         "Time": 12.9992085,
         "Memory_Used": 2.125,
@@ -471,7 +471,7 @@
       },
       {
         "File": "StocF-1465.mat",
-        "Size (MB)": 174.12,
+        "N": 1465137,
         "Errore_Relativo": null,
         "Time": null,
         "Memory_Used": null,
